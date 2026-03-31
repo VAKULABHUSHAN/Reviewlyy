@@ -1,30 +1,47 @@
 import 'package:flutter/material.dart';
-import 'package:reviewlyyy/Screens/product_details_screen.dart';
-import 'package:reviewlyyy/Screens/product_screen.dart';
+import 'package:provider/provider.dart';
 
-import 'Screens/dashboard_screen.dart';
-import 'Screens/home page.dart';
-import 'Screens/review_screen.dart';
-import 'Screens/top_rated_screen.dart';
-import 'Screens/write_review_screen.dart';
+import 'Themes/app_colors.dart';
+import 'providers/catalog_provider.dart';
+import 'routes/app_routes.dart';
 
-void main() {
-  runApp(const MyApp());
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  runApp(const ReviewlyApp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class ReviewlyApp extends StatelessWidget {
+  const ReviewlyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        colorScheme: .fromSeed(seedColor: Colors.deepPurple),
+    return ChangeNotifierProvider(
+      create: (_) => CatalogProvider()..initialize(),
+      child: MaterialApp(
+        title: 'Reviewlyy',
+        debugShowCheckedModeBanner: false,
+        themeMode: ThemeMode.system,
+        theme: ThemeData(
+          useMaterial3: true,
+          fontFamily: 'Manrope',
+          colorScheme: ColorScheme.fromSeed(
+            seedColor: AppColors.primary,
+            brightness: Brightness.light,
+          ),
+          scaffoldBackgroundColor: AppColors.backgroundLight,
+        ),
+        darkTheme: ThemeData(
+          useMaterial3: true,
+          fontFamily: 'Manrope',
+          colorScheme: ColorScheme.fromSeed(
+            seedColor: AppColors.primary,
+            brightness: Brightness.dark,
+          ),
+          scaffoldBackgroundColor: AppColors.backgroundDark,
+        ),
+        initialRoute: AppRoutes.home,
+        onGenerateRoute: AppRoutes.onGenerateRoute,
       ),
-      home: DashBoardScreen()
     );
   }
 }
