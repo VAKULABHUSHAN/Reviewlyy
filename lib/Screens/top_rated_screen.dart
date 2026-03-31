@@ -5,30 +5,7 @@ class TopRatedScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'ReviewHub',
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        useMaterial3: true,
-        fontFamily: 'Roboto',
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: const Color(0xFF2469EB),
-          brightness: Brightness.light,
-        ),
-        scaffoldBackgroundColor: const Color(0xFFF6F6F8),
-      ),
-      darkTheme: ThemeData(
-        useMaterial3: true,
-        fontFamily: 'Roboto',
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: const Color(0xFF2469EB),
-          brightness: Brightness.dark,
-        ),
-        scaffoldBackgroundColor: const Color(0xFF111621),
-      ),
-      themeMode: ThemeMode.system,
-      home: const TopRatedPage(),
-    );
+    return const TopRatedPage();
   }
 }
 
@@ -337,32 +314,43 @@ class _NavLink extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        Text(
-          label,
-          style: TextStyle(
-            color: isActive
-                ? kPrimary
-                : isDark
-                ? const Color(0xFF94A3B8)
-                : const Color(0xFF475569),
-            fontWeight: isActive ? FontWeight.w700 : FontWeight.w600,
-            fontSize: 13,
-          ),
-        ),
-        if (isActive)
-          Container(
-            margin: const EdgeInsets.only(top: 4),
-            height: 2,
-            width: 36,
-            decoration: BoxDecoration(
-              color: kPrimary,
-              borderRadius: BorderRadius.circular(2),
+    return GestureDetector(
+      onTap: () {
+        if (isActive) return;
+        switch (label) {
+          case 'Home': Navigator.pushNamed(context, '/');
+          case 'Categories': Navigator.pushNamed(context, '/products');
+          case 'Top Rated': break;
+          case 'Compare': break;
+        }
+      },
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Text(
+            label,
+            style: TextStyle(
+              color: isActive
+                  ? kPrimary
+                  : isDark
+                  ? const Color(0xFF94A3B8)
+                  : const Color(0xFF475569),
+              fontWeight: isActive ? FontWeight.w700 : FontWeight.w600,
+              fontSize: 13,
             ),
           ),
-      ],
+          if (isActive)
+            Container(
+              margin: const EdgeInsets.only(top: 4),
+              height: 2,
+              width: 36,
+              decoration: BoxDecoration(
+                color: kPrimary,
+                borderRadius: BorderRadius.circular(2),
+              ),
+            ),
+        ],
+      ),
     );
   }
 }

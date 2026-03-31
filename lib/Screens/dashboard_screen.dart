@@ -6,30 +6,7 @@ class DashBoardScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'ReviewHub Dashboard',
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        useMaterial3: true,
-        fontFamily: 'Roboto',
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: kPrimary,
-          brightness: Brightness.light,
-        ),
-        scaffoldBackgroundColor: const Color(0xFFF6F6F8),
-      ),
-      darkTheme: ThemeData(
-        useMaterial3: true,
-        fontFamily: 'Roboto',
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: kPrimary,
-          brightness: Brightness.dark,
-        ),
-        scaffoldBackgroundColor: const Color(0xFF111621),
-      ),
-      themeMode: ThemeMode.system,
-      home: const DashboardPage(),
-    );
+    return const DashboardPage();
   }
 }
 
@@ -379,33 +356,44 @@ class _NavLink extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        Text(
-          label,
-          style: TextStyle(
-            color: isActive
-                ? kPrimary
-                : isDark
-                ? const Color(0xFFCBD5E1)
-                : const Color(0xFF475569),
-            fontWeight:
-            isActive ? FontWeight.w700 : FontWeight.w500,
-            fontSize: 13,
-          ),
-        ),
-        if (isActive)
-          Container(
-            margin: const EdgeInsets.only(top: 3),
-            height: 2,
-            width: 36,
-            decoration: BoxDecoration(
-              color: kPrimary,
-              borderRadius: BorderRadius.circular(2),
+    return GestureDetector(
+      onTap: () {
+        if (isActive) return;
+        switch (label) {
+          case 'Home': Navigator.pushNamed(context, '/');
+          case 'Reviews': Navigator.pushNamed(context, '/reviews');
+          case 'Categories': Navigator.pushNamed(context, '/products');
+          case 'Dashboard': break;
+        }
+      },
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Text(
+            label,
+            style: TextStyle(
+              color: isActive
+                  ? kPrimary
+                  : isDark
+                  ? const Color(0xFFCBD5E1)
+                  : const Color(0xFF475569),
+              fontWeight:
+              isActive ? FontWeight.w700 : FontWeight.w500,
+              fontSize: 13,
             ),
           ),
-      ],
+          if (isActive)
+            Container(
+              margin: const EdgeInsets.only(top: 3),
+              height: 2,
+              width: 36,
+              decoration: BoxDecoration(
+                color: kPrimary,
+                borderRadius: BorderRadius.circular(2),
+              ),
+            ),
+        ],
+      ),
     );
   }
 }
@@ -451,7 +439,7 @@ class _DashboardHeader extends StatelessWidget {
         ),
         const SizedBox(width: 16),
         ElevatedButton.icon(
-          onPressed: () {},
+          onPressed: () => Navigator.pushNamed(context, '/write-review'),
           icon: const Icon(Icons.add_circle_rounded, size: 18),
           label: Text(isWide ? 'Write a Review' : 'Review'),
           style: ElevatedButton.styleFrom(

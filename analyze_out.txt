@@ -1,0 +1,97 @@
+﻿Analyzing Reviewlyy...                                          
+
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\Screens\dashboard_screen.dart:233:31 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\Screens\dashboard_screen.dart:318:37 - deprecated_member_use
+   info - Unnecessary use of multiple underscores - lib\Screens\dashboard_screen.dart:336:35 - unnecessary_underscores
+   info - Unnecessary use of multiple underscores - lib\Screens\dashboard_screen.dart:336:39 - unnecessary_underscores
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\Screens\dashboard_screen.dart:455:35 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\Screens\dashboard_screen.dart:550:33 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\Screens\dashboard_screen.dart:624:33 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\Screens\dashboard_screen.dart:706:45 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\Screens\dashboard_screen.dart:827:47 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\Screens\dashboard_screen.dart:1204:24 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\Screens\dashboard_screen.dart:1205:24 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\Screens\dashboard_screen.dart:1207:44 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\Screens\dashboard_screen.dart:1320:33 - deprecated_member_use
+   info - The file name 'home page.dart' isn't a lower_case_with_underscores identifier - lib\Screens\home page.dart:1:1 - file_names
+   info - Unnecessary use of multiple underscores - lib\Screens\home page.dart:157:47 - unnecessary_underscores
+   info - Unnecessary use of multiple underscores - lib\Screens\home page.dart:263:35 - unnecessary_underscores
+   info - Unnecessary use of multiple underscores - lib\Screens\home page.dart:263:39 - unnecessary_underscores
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\Screens\home page.dart:520:20 - deprecated_member_use
+   info - Unnecessary use of multiple underscores - lib\Screens\home page.dart:544:45 - unnecessary_underscores
+   info - Unnecessary use of multiple underscores - lib\Screens\home page.dart:544:49 - unnecessary_underscores
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\Screens\home page.dart:779:37 - deprecated_member_use
+   info - Unnecessary use of multiple underscores - lib\Screens\product_details_screen.dart:269:47 - unnecessary_underscores
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\Screens\product_details_screen.dart:380:33 - deprecated_member_use
+   info - Unnecessary use of multiple underscores - lib\Screens\product_details_screen.dart:418:33 - unnecessary_underscores
+   info - Unnecessary use of multiple underscores - lib\Screens\product_details_screen.dart:418:37 - unnecessary_underscores
+   info - Unnecessary use of multiple underscores - lib\Screens\product_details_screen.dart:452:45 - unnecessary_underscores
+   info - Unnecessary use of multiple underscores - lib\Screens\product_details_screen.dart:452:49 - unnecessary_underscores
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\Screens\product_details_screen.dart:509:42 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\Screens\product_details_screen.dart:792:33 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\Screens\product_details_screen.dart:1034:33 - deprecated_member_use
+   info - Unnecessary use of multiple underscores - lib\Screens\product_screen.dart:274:47 - unnecessary_underscores
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\Screens\product_screen.dart:339:33 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\Screens\product_screen.dart:746:41 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\Screens\product_screen.dart:796:35 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\Screens\product_screen.dart:801:37 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\Screens\product_screen.dart:857:28 - deprecated_member_use
+   info - Unnecessary use of multiple underscores - lib\Screens\product_screen.dart:880:43 - unnecessary_underscores
+   info - Unnecessary use of multiple underscores - lib\Screens\product_screen.dart:880:47 - unnecessary_underscores
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\Screens\product_screen.dart:893:46 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\Screens\product_screen.dart:894:46 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\Screens\product_screen.dart:898:51 - deprecated_member_use
+   info - Unnecessary use of multiple underscores - lib\Screens\review_screen.dart:322:47 - unnecessary_underscores
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\Screens\review_screen.dart:462:40 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\Screens\review_screen.dart:507:33 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\Screens\review_screen.dart:935:33 - deprecated_member_use
+   info - Unnecessary use of multiple underscores - lib\Screens\review_screen.dart:955:51 - unnecessary_underscores
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\Screens\top_rated_screen.dart:190:28 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\Screens\top_rated_screen.dart:191:28 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\Screens\top_rated_screen.dart:195:32 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\Screens\top_rated_screen.dart:196:32 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\Screens\top_rated_screen.dart:201:33 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\Screens\top_rated_screen.dart:282:37 - deprecated_member_use
+   info - Unnecessary use of multiple underscores - lib\Screens\top_rated_screen.dart:297:35 - unnecessary_underscores
+   info - Unnecessary use of multiple underscores - lib\Screens\top_rated_screen.dart:297:39 - unnecessary_underscores
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\Screens\top_rated_screen.dart:383:35 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\Screens\top_rated_screen.dart:603:28 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\Screens\top_rated_screen.dart:604:32 - deprecated_member_use
+   info - Unnecessary use of multiple underscores - lib\Screens\top_rated_screen.dart:624:39 - unnecessary_underscores
+   info - Unnecessary use of multiple underscores - lib\Screens\top_rated_screen.dart:624:43 - unnecessary_underscores
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\Screens\top_rated_screen.dart:678:43 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\Screens\top_rated_screen.dart:728:43 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\Screens\top_rated_screen.dart:855:33 - deprecated_member_use
+   info - Unnecessary use of multiple underscores - lib\Screens\top_rated_screen.dart:908:29 - unnecessary_underscores
+   info - Unnecessary use of multiple underscores - lib\Screens\top_rated_screen.dart:908:33 - unnecessary_underscores
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\Screens\top_rated_screen.dart:1016:24 - deprecated_member_use
+   info - Unnecessary use of multiple underscores - lib\Screens\write_review_screen.dart:272:47 - unnecessary_underscores
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\Screens\write_review_screen.dart:392:33 - deprecated_member_use
+   info - Unnecessary use of multiple underscores - lib\Screens\write_review_screen.dart:408:35 - unnecessary_underscores
+   info - Unnecessary use of multiple underscores - lib\Screens\write_review_screen.dart:408:39 - unnecessary_underscores
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\Screens\write_review_screen.dart:503:33 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\Screens\write_review_screen.dart:628:48 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\Screens\write_review_screen.dart:882:38 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\Screens\write_review_screen.dart:887:40 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\Screens\write_review_screen.dart:898:44 - deprecated_member_use
+
+flutter : 74 issues 
+found. (ran in 1.1s)
+At line:1 char:1
++ flutter analyze 2>&1 
+| Out-File -Encoding 
+utf8 
+d:\Reviewlyy\analyze_o 
+...
++ ~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo      
+        : NotSpecified: 
+(7    4 issues found. 
+(ran     in 
+1.1s):String) [],     
+RemoteException
+    + 
+FullyQualifiedError    
+Id : NativeCommandErr   
+ or
+ 

@@ -79,44 +79,13 @@ enum SortOption { latest, highest, lowest }
 
 // ─── Reviews Screen ───────────────────────────────────────────────────────────
 
-class ReviewsScreen extends StatefulWidget {
+class ReviewsScreen extends StatelessWidget {
   const ReviewsScreen({super.key});
 
   @override
-  State<ReviewsScreen> createState() => _ReviewsScreenState();
-}
-
-class _ReviewsScreenState extends State<ReviewsScreen> {
-  bool _isDark = false;
-  void _toggleTheme() => setState(() => _isDark = !_isDark);
-
-  @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      themeMode: _isDark ? ThemeMode.dark : ThemeMode.light,
-      theme: ThemeData(
-        useMaterial3: true,
-        fontFamily: 'Manrope',
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: AppColors.primary,
-          brightness: Brightness.light,
-          surface: AppColors.backgroundLight,
-        ),
-        scaffoldBackgroundColor: AppColors.backgroundLight,
-      ),
-      darkTheme: ThemeData(
-        useMaterial3: true,
-        fontFamily: 'Manrope',
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: AppColors.primary,
-          brightness: Brightness.dark,
-          surface: AppColors.backgroundDark,
-        ),
-        scaffoldBackgroundColor: AppColors.backgroundDark,
-      ),
-      home: _ReviewsBody(isDark: _isDark, onToggleTheme: _toggleTheme),
-    );
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+    return _ReviewsBody(isDark: isDark, onToggleTheme: () {});
   }
 }
 
@@ -271,7 +240,13 @@ class _ReviewsBodyState extends State<_ReviewsBody> {
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 10),
                       child: GestureDetector(
-                        onTap: () {},
+                        onTap: () {
+                          switch (label) {
+                            case 'Home': Navigator.pushNamed(context, '/');
+                            case 'Products': Navigator.pushNamed(context, '/products');
+                            case 'Categories': Navigator.pushNamed(context, '/products');
+                          }
+                        },
                         child: Text(
                           label,
                           style: const TextStyle(
@@ -474,7 +449,7 @@ class _PageHeader extends StatelessWidget {
     );
 
     final writeBtn = ElevatedButton.icon(
-      onPressed: () {},
+      onPressed: () => Navigator.pushNamed(context, '/write-review'),
       icon: const Icon(Icons.rate_review_rounded, size: 18),
       label: const Text('Write a Review'),
       style: ElevatedButton.styleFrom(

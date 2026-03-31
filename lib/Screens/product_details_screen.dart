@@ -78,44 +78,13 @@ const _thumbnailUrls = [
 
 // ─── Product Details Screen ───────────────────────────────────────────────────
 
-class ProductDetailsScreen extends StatefulWidget {
+class ProductDetailsScreen extends StatelessWidget {
   const ProductDetailsScreen({super.key});
 
   @override
-  State<ProductDetailsScreen> createState() => _ProductDetailsScreenState();
-}
-
-class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
-  bool _isDark = false;
-  void _toggleTheme() => setState(() => _isDark = !_isDark);
-
-  @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      themeMode: _isDark ? ThemeMode.dark : ThemeMode.light,
-      theme: ThemeData(
-        useMaterial3: true,
-        fontFamily: 'Manrope',
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: AppColors.primary,
-          brightness: Brightness.light,
-          surface: AppColors.backgroundLight,
-        ),
-        scaffoldBackgroundColor: AppColors.backgroundLight,
-      ),
-      darkTheme: ThemeData(
-        useMaterial3: true,
-        fontFamily: 'Manrope',
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: AppColors.primary,
-          brightness: Brightness.dark,
-          surface: AppColors.backgroundDark,
-        ),
-        scaffoldBackgroundColor: AppColors.backgroundDark,
-      ),
-      home: _DetailsBody(isDark: _isDark, onToggleTheme: _toggleTheme),
-    );
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+    return _DetailsBody(isDark: isDark, onToggleTheme: () {});
   }
 }
 
@@ -217,13 +186,21 @@ class _DetailsBodyState extends State<_DetailsBody> {
                   for (final label in ['Home', 'Categories', 'About'])
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 10),
-                      child: Text(
-                        label,
-                        style: const TextStyle(
-                          fontFamily: 'Manrope',
-                          fontSize: 13,
-                          fontWeight: FontWeight.w500,
-                          color: AppColors.textMuted,
+                      child: GestureDetector(
+                        onTap: () {
+                          switch (label) {
+                            case 'Home': Navigator.pushNamed(context, '/');
+                            case 'Categories': Navigator.pushNamed(context, '/products');
+                          }
+                        },
+                        child: Text(
+                          label,
+                          style: const TextStyle(
+                            fontFamily: 'Manrope',
+                            fontSize: 13,
+                            fontWeight: FontWeight.w500,
+                            color: AppColors.textMuted,
+                          ),
                         ),
                       ),
                     ),
@@ -648,7 +625,7 @@ class _ProductInfo extends StatelessWidget {
           children: [
             Expanded(
               child: ElevatedButton.icon(
-                onPressed: () {},
+                onPressed: () => Navigator.pushNamed(context, '/write-review'),
                 icon: const Icon(Icons.edit_note_rounded, size: 18),
                 label: const Text('Write a Review'),
                 style: ElevatedButton.styleFrom(
@@ -668,7 +645,7 @@ class _ProductInfo extends StatelessWidget {
             const SizedBox(width: 14),
             Expanded(
               child: OutlinedButton.icon(
-                onPressed: () {},
+                onPressed: () => Navigator.pushNamed(context, '/reviews'),
                 icon: const Icon(Icons.forum_outlined, size: 18),
                 label: const Text('View All Reviews'),
                 style: OutlinedButton.styleFrom(

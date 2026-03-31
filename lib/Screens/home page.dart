@@ -27,55 +27,13 @@ class AppTextStyles {
 
 // ─── Main Screen ─────────────────────────────────────────────────────────────
 
-class HomeScreen extends StatefulWidget {
+class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
-}
-
-class _HomeScreenState extends State<HomeScreen> {
-  bool _isDark = false;
-
-  void _toggleTheme() => setState(() => _isDark = !_isDark);
-
-  @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      themeMode: _isDark ? ThemeMode.dark : ThemeMode.light,
-      theme: ThemeData(
-        useMaterial3: true,
-        fontFamily: 'Manrope',
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: AppColors.primary,
-          brightness: Brightness.light,
-          surface: AppColors.backgroundLight,
-        ),
-        scaffoldBackgroundColor: AppColors.backgroundLight,
-        appBarTheme: const AppBarTheme(
-          backgroundColor: Colors.white,
-          surfaceTintColor: Colors.transparent,
-          elevation: 0,
-        ),
-      ),
-      darkTheme: ThemeData(
-        useMaterial3: true,
-        fontFamily: 'Manrope',
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: AppColors.primary,
-          brightness: Brightness.dark,
-          surface: AppColors.backgroundDark,
-        ),
-        scaffoldBackgroundColor: AppColors.backgroundDark,
-        appBarTheme: const AppBarTheme(
-          backgroundColor: AppColors.backgroundDark,
-          surfaceTintColor: Colors.transparent,
-          elevation: 0,
-        ),
-      ),
-      home: _HomeBody(isDark: _isDark, onToggleTheme: _toggleTheme),
-    );
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+    return _HomeBody(isDark: isDark, onToggleTheme: () {});
   }
 }
 
@@ -257,7 +215,16 @@ class _NavLink extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 12),
       child: GestureDetector(
-        onTap: () {},
+        onTap: () {
+          if (isActive) return;
+          switch (label) {
+            case 'Home': Navigator.pushNamed(context, '/');
+            case 'Products': Navigator.pushNamed(context, '/products');
+            case 'Top Rated': Navigator.pushNamed(context, '/top-rated');
+            case 'Reviews': Navigator.pushNamed(context, '/reviews');
+            case 'Dashboard': Navigator.pushNamed(context, '/dashboard');
+          }
+        },
         child: Text(
           label,
           style: TextStyle(
@@ -350,7 +317,7 @@ class _HeroSection extends StatelessWidget {
                     alignment: WrapAlignment.center,
                     children: [
                       ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () => Navigator.pushNamed(context, '/products'),
                         style: ElevatedButton.styleFrom(
                           backgroundColor: AppColors.primary,
                           foregroundColor: Colors.white,
@@ -368,7 +335,7 @@ class _HeroSection extends StatelessWidget {
                         child: const Text('Explore Products'),
                       ),
                       OutlinedButton(
-                        onPressed: () {},
+                        onPressed: () => Navigator.pushNamed(context, '/write-review'),
                         style: OutlinedButton.styleFrom(
                           foregroundColor: Colors.white,
                           side: const BorderSide(color: Colors.white38),
@@ -458,7 +425,7 @@ class _FeaturedProductsSection extends StatelessWidget {
                     .copyWith(fontSize: 26),
               ),
               GestureDetector(
-                onTap: () {},
+                onTap: () => Navigator.pushNamed(context, '/products'),
                 child: const Row(
                   children: [
                     Text(
@@ -635,7 +602,7 @@ class _ProductCardState extends State<ProductCard> {
               SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () => Navigator.pushNamed(context, '/product-details'),
                   style: ElevatedButton.styleFrom(
                     backgroundColor: _hovered
                         ? AppColors.primary

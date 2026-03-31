@@ -1,48 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import '../Themes/app_colors.dart';
+import '../providers/app_provider.dart';
 
 
 // ─── Write Review Screen ──────────────────────────────────────────────────────
 
-class WriteReviewScreen extends StatefulWidget {
+class WriteReviewScreen extends StatelessWidget {
   const WriteReviewScreen({super.key});
 
   @override
-  State<WriteReviewScreen> createState() => _WriteReviewScreenState();
-}
-
-class _WriteReviewScreenState extends State<WriteReviewScreen> {
-  bool _isDark = false;
-  void _toggleTheme() => setState(() => _isDark = !_isDark);
-
-  @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      themeMode: _isDark ? ThemeMode.dark : ThemeMode.light,
-      theme: ThemeData(
-        useMaterial3: true,
-        fontFamily: 'Manrope',
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: AppColors.primary,
-          brightness: Brightness.light,
-          surface: AppColors.backgroundLight,
-        ),
-        scaffoldBackgroundColor: AppColors.backgroundLight,
-      ),
-      darkTheme: ThemeData(
-        useMaterial3: true,
-        fontFamily: 'Manrope',
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: AppColors.primary,
-          brightness: Brightness.dark,
-          surface: AppColors.backgroundDark,
-        ),
-        scaffoldBackgroundColor: AppColors.backgroundDark,
-      ),
-      home: _WriteReviewBody(isDark: _isDark, onToggleTheme: _toggleTheme),
-    );
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+    return _WriteReviewBody(isDark: isDark, onToggleTheme: () {});
   }
 }
 
@@ -84,6 +55,15 @@ class _WriteReviewBodyState extends State<_WriteReviewBody> {
     final formValid = _formKey.currentState?.validate() ?? false;
     if (_selectedRating == 0) setState(() => _ratingError = true);
     if (!formValid || _selectedRating == 0) return;
+
+    // Add review to Provider
+    context.read<AppReviewProvider>().addReview(
+      username: _nameController.text.trim(),
+      rating: _selectedRating,
+      title: _titleController.text.trim(),
+      body: _descController.text.trim(),
+    );
+
     setState(() {
       _ratingError = false;
       _submitted = true;
@@ -227,7 +207,13 @@ class _WriteReviewBodyState extends State<_WriteReviewBody> {
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 10),
                       child: GestureDetector(
-                        onTap: () {},
+                        onTap: () {
+                          switch (label) {
+                            case 'Home': Navigator.pushNamed(context, '/');
+                            case 'Products': Navigator.pushNamed(context, '/products');
+                            case 'Categories': Navigator.pushNamed(context, '/products');
+                          }
+                        },
                         child: Text(
                           label,
                           style: const TextStyle(
