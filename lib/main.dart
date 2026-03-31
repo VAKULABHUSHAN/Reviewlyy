@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:reviewlyyy/Screens/product_details_screen.dart';
 import 'package:reviewlyyy/Screens/product_screen.dart';
 
+import 'Screens/dashboard_screen.dart';
 import 'Screens/home page.dart';
 import 'Screens/review_screen.dart';
+import 'Screens/top_rated_screen.dart';
 import 'Screens/write_review_screen.dart';
 
 void main() {
@@ -18,10 +20,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         colorScheme: .fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: ReviewsScreen()
+      home: DashBoardScreen()
     );
   }
 }
