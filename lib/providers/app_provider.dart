@@ -1,6 +1,5 @@
 import 'package:flutter/foundation.dart';
 
-/// A simple review model used by the Provider.
 class AppReview {
   final String id;
   final String username;
@@ -19,7 +18,6 @@ class AppReview {
   });
 }
 
-/// Central state for reviews. Screens can read / add reviews via this provider.
 class AppReviewProvider extends ChangeNotifier {
   final List<AppReview> _reviews = [
     AppReview(

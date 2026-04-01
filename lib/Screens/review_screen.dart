@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import '../Themes/app_colors.dart';
 
 
-// ─── Review Data Model ────────────────────────────────────────────────────────
 
 class ReviewData {
   final int id;
@@ -25,7 +24,6 @@ class ReviewData {
   });
 }
 
-// ─── Static Mock Reviews ──────────────────────────────────────────────────────
 
 final _mockReviews = [
   ReviewData(
@@ -63,7 +61,6 @@ final _mockReviews = [
   ),
 ];
 
-// ─── Rating Distribution Data ─────────────────────────────────────────────────
 
 const _ratingDist = [
   (stars: 5, percent: 0.75, label: '75%'),
@@ -73,11 +70,9 @@ const _ratingDist = [
   (stars: 1, percent: 0.02, label: '2%'),
 ];
 
-// ─── Sort Options ─────────────────────────────────────────────────────────────
 
 enum SortOption { latest, highest, lowest }
 
-// ─── Reviews Screen ───────────────────────────────────────────────────────────
 
 class ReviewsScreen extends StatelessWidget {
   const ReviewsScreen({super.key});
@@ -89,7 +84,6 @@ class ReviewsScreen extends StatelessWidget {
   }
 }
 
-// ─── Reviews Body ─────────────────────────────────────────────────────────────
 
 class _ReviewsBody extends StatefulWidget {
   final bool isDark;
@@ -1091,7 +1085,6 @@ class _ReviewCardState extends State<ReviewCard> {
   }
 }
 
-// ─── Footer ───────────────────────────────────────────────────────────────────
 
 class _Footer extends StatelessWidget {
   final bool isDark;

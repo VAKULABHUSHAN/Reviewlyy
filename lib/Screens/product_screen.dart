@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-// ─── Shared Constants (import from app_theme.dart in full project) ────────────
 
 class AppColors {
   static const primary = Color(0xFF2469EB);
@@ -13,7 +12,6 @@ class AppColors {
   static const starYellow = Color(0xFFFACC15);
 }
 
-// ─── Product Data Model ───────────────────────────────────────────────────────
 
 class ProductData {
   final String title;
@@ -33,7 +31,6 @@ class ProductData {
   });
 }
 
-// ─── Static Product List ──────────────────────────────────────────────────────
 
 const _allProducts = [
   ProductData(
@@ -118,7 +115,6 @@ const _allProducts = [
   ),
 ];
 
-// ─── Products Screen ──────────────────────────────────────────────────────────
 
 class ProductsScreen extends StatelessWidget {
   const ProductsScreen({super.key});
@@ -219,7 +215,6 @@ class _ProductsBodyState extends State<_ProductsBody> {
     return EdgeInsets.symmetric(horizontal: h);
   }
 
-  // ── AppBar ──────────────────────────────────────────────────────────────────
 
   PreferredSizeWidget _buildAppBar(BuildContext context, bool isDark) {
     final isWide = MediaQuery.of(context).size.width > 700;
@@ -292,7 +287,6 @@ class _ProductsBodyState extends State<_ProductsBody> {
     );
   }
 
-  // ── Page Header ─────────────────────────────────────────────────────────────
 
   Widget _buildPageHeader() {
     return Column(
@@ -321,7 +315,6 @@ class _ProductsBodyState extends State<_ProductsBody> {
     );
   }
 
-  // ── Search + Filter Bar ──────────────────────────────────────────────────────
 
   Widget _buildSearchFilterBar(BuildContext context, bool isDark) {
     final isWide = MediaQuery.of(context).size.width > 700;
@@ -440,7 +433,6 @@ class _ProductsBodyState extends State<_ProductsBody> {
     );
   }
 
-  // ── Product Grid ─────────────────────────────────────────────────────────────
 
   Widget _buildProductGrid(BuildContext context) {
     final w = MediaQuery.of(context).size.width;
@@ -478,7 +470,6 @@ class _ProductsBodyState extends State<_ProductsBody> {
     );
   }
 
-  // ── Pagination ───────────────────────────────────────────────────────────────
 
   Widget _buildPagination(bool isDark) {
     final pages = [1, 2, 3, 12];
@@ -552,7 +543,6 @@ class _ProductsBodyState extends State<_ProductsBody> {
   }
 }
 
-// ─── Reusable: AppBar Nav Link ────────────────────────────────────────────────
 
 class _AppNavLink extends StatelessWidget {
   final String label;
@@ -592,7 +582,6 @@ class _AppNavLink extends StatelessWidget {
   }
 }
 
-// ─── Reusable: Search Bar ─────────────────────────────────────────────────────
 
 class _SearchBar extends StatelessWidget {
   final bool isDark;
@@ -657,7 +646,6 @@ class _SearchBar extends StatelessWidget {
   }
 }
 
-// ─── Reusable: Ratings Dropdown ───────────────────────────────────────────────
 
 class _RatingsDropdown extends StatelessWidget {
   final bool isDark;
@@ -698,7 +686,6 @@ class _RatingsDropdown extends StatelessWidget {
   }
 }
 
-// ─── Reusable: Sort Toggle ────────────────────────────────────────────────────
 
 class _SortToggle extends StatelessWidget {
   final List<String> labels;
@@ -769,7 +756,6 @@ class _SortToggle extends StatelessWidget {
   }
 }
 
-// ─── Reusable: Filter Chip ────────────────────────────────────────────────────
 
 class _FilterChip extends StatelessWidget {
   final String label;
@@ -820,7 +806,6 @@ class _FilterChip extends StatelessWidget {
   }
 }
 
-// ─── Reusable: Product Card ───────────────────────────────────────────────────
 
 class _ProductCard extends StatefulWidget {
   final ProductData product;
@@ -1024,7 +1009,6 @@ class _ProductCardState extends State<_ProductCard> {
   }
 }
 
-// ─── Reusable: Pagination Button ──────────────────────────────────────────────
 
 class _PageButton extends StatelessWidget {
   final Widget child;
@@ -1066,7 +1050,6 @@ class _PageButton extends StatelessWidget {
   }
 }
 
-// ─── Footer Section ───────────────────────────────────────────────────────────
 
 class _FooterSection extends StatelessWidget {
   final bool isDark;
@@ -1338,5 +1321,4 @@ class _FooterNewsletter extends StatelessWidget {
   }
 }
 
-// ─── Entry Point ──────────────────────────────────────────────────────────────
 

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-// ─── App Theme Constants ────────────────────────────────────────────────────
+
 
 class AppColors {
   static const primary = Color(0xFF2469EB);
@@ -25,7 +25,6 @@ class AppTextStyles {
   );
 }
 
-// ─── Main Screen ─────────────────────────────────────────────────────────────
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -176,7 +175,6 @@ class _HomeBody extends StatelessWidget {
   }
 }
 
-// ─── Logo Widget ──────────────────────────────────────────────────────────────
 
 class _ReviewPulseLogo extends StatelessWidget {
   const _ReviewPulseLogo();
@@ -202,7 +200,6 @@ class _ReviewPulseLogo extends StatelessWidget {
   }
 }
 
-// ─── Nav Link Widget ──────────────────────────────────────────────────────────
 
 class _NavLink extends StatelessWidget {
   final String label;
@@ -239,7 +236,6 @@ class _NavLink extends StatelessWidget {
   }
 }
 
-// ─── Hero Section ─────────────────────────────────────────────────────────────
 
 class _HeroSection extends StatelessWidget {
   const _HeroSection();
@@ -363,7 +359,6 @@ class _HeroSection extends StatelessWidget {
   }
 }
 
-// ─── Featured Products Section ────────────────────────────────────────────────
 
 class _FeaturedProductsSection extends StatelessWidget {
   const _FeaturedProductsSection();
@@ -465,7 +460,6 @@ class _FeaturedProductsSection extends StatelessWidget {
   }
 }
 
-// ─── Product Data Model ───────────────────────────────────────────────────────
 
 class ProductData {
   final String title;
@@ -485,7 +479,6 @@ class ProductData {
   });
 }
 
-// ─── Reusable Product Card ────────────────────────────────────────────────────
 
 class ProductCard extends StatefulWidget {
   final ProductData product;
@@ -634,7 +627,6 @@ class _ProductCardState extends State<ProductCard> {
   }
 }
 
-// ─── Reusable Star Rating Widget ──────────────────────────────────────────────
 
 class StarRating extends StatelessWidget {
   final double rating;
@@ -675,7 +667,6 @@ class StarRating extends StatelessWidget {
   }
 }
 
-// ─── Top Categories Section ───────────────────────────────────────────────────
 
 class _TopCategoriesSection extends StatelessWidget {
   const _TopCategoriesSection();
@@ -729,7 +720,6 @@ class _TopCategoriesSection extends StatelessWidget {
   }
 }
 
-// ─── Category Data Model ──────────────────────────────────────────────────────
 
 class CategoryData {
   final String label;
@@ -738,7 +728,6 @@ class CategoryData {
   const CategoryData({required this.label, required this.icon});
 }
 
-// ─── Reusable Category Card ───────────────────────────────────────────────────
 
 class CategoryCard extends StatefulWidget {
   final CategoryData category;
@@ -805,7 +794,6 @@ class _CategoryCardState extends State<CategoryCard> {
   }
 }
 
-// ─── Footer Section ───────────────────────────────────────────────────────────
 
 class _FooterSection extends StatelessWidget {
   const _FooterSection();

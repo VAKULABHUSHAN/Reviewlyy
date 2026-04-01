@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-// ─── Shared Constants (move to app_theme.dart in full project) ────────────────
 
 class AppColors {
   static const primary = Color(0xFF2469EB);
@@ -15,7 +14,6 @@ class AppColors {
   static const bgSubtle = Color(0xFFF8FAFC);
 }
 
-// ─── Review Data Model ────────────────────────────────────────────────────────
 
 class ReviewItem {
   final String initials;
@@ -37,7 +35,6 @@ class ReviewItem {
   });
 }
 
-// ─── Static Data ──────────────────────────────────────────────────────────────
 
 const _reviews = [
   ReviewItem(
@@ -76,7 +73,6 @@ const _thumbnailUrls = [
   'https://lh3.googleusercontent.com/aida-public/AB6AXuAJ9_KbjskTNrGP6t0veSe3Dy7UbagJOtBaCAJ--tEil8OWnYgJxSSgw5ZaKwNr-OtqWuWwX1GhhXFRpaRsUOwmYItxwpJtBgMhtbfZBQ0sOXCmxms9oVtWHHS5ryuUIM7mBQa5cOGDd3l1GYnpJFQzviMZnioixGOnN8VdxGwlgGcBis01gxWbxWKySth9YWYFPCXhVgE7d69fO21MaM_pGBplikNyUDhlkeUZlDSLvvLMk3sGny-7OvaKRsjiwiyaFVkqNgAnyGU',
 ];
 
-// ─── Product Details Screen ───────────────────────────────────────────────────
 
 class ProductDetailsScreen extends StatelessWidget {
   const ProductDetailsScreen({super.key});
@@ -146,7 +142,6 @@ class _DetailsBodyState extends State<_DetailsBody> {
     );
   }
 
-  // ── AppBar ──────────────────────────────────────────────────────────────────
 
   PreferredSizeWidget _buildAppBar(BuildContext context, bool isDark) {
     final isWide = MediaQuery.of(context).size.width > 700;
@@ -290,7 +285,6 @@ class _DetailsBodyState extends State<_DetailsBody> {
   }
 }
 
-// ─── Breadcrumb ───────────────────────────────────────────────────────────────
 
 class _Breadcrumb extends StatelessWidget {
   final bool isDark;
@@ -333,7 +327,6 @@ class _Breadcrumb extends StatelessWidget {
   }
 }
 
-// ─── Main Product Card ────────────────────────────────────────────────────────
 
 class _ProductMainCard extends StatelessWidget {
   final bool isDark;
@@ -388,7 +381,6 @@ class _ProductMainCard extends StatelessWidget {
   }
 }
 
-// ─── Image Gallery ────────────────────────────────────────────────────────────
 
 class _ImageGallery extends StatelessWidget {
   final bool isDark;
@@ -489,7 +481,6 @@ class _ImageGallery extends StatelessWidget {
   }
 }
 
-// ─── Product Info Panel ───────────────────────────────────────────────────────
 
 class _ProductInfo extends StatelessWidget {
   final bool isDark;
@@ -672,7 +663,6 @@ class _ProductInfo extends StatelessWidget {
   }
 }
 
-// ─── Spec Card ────────────────────────────────────────────────────────────────
 
 class _SpecCard extends StatelessWidget {
   final bool isDark;
@@ -731,7 +721,6 @@ class _SpecCard extends StatelessWidget {
   }
 }
 
-// ─── Reviews Section (Wide) ───────────────────────────────────────────────────
 
 class _ReviewsSection extends StatelessWidget {
   final bool isDark;
@@ -753,7 +742,6 @@ class _ReviewsSection extends StatelessWidget {
   }
 }
 
-// ─── Reviews Section (Mobile) ─────────────────────────────────────────────────
 
 class _ReviewsSectionMobile extends StatelessWidget {
   final bool isDark;
@@ -771,7 +759,6 @@ class _ReviewsSectionMobile extends StatelessWidget {
   }
 }
 
-// ─── Rating Distribution Card ─────────────────────────────────────────────────
 
 class _RatingDistributionCard extends StatelessWidget {
   final bool isDark;
@@ -900,7 +887,6 @@ class _RatingDistributionCard extends StatelessWidget {
   }
 }
 
-// ─── Reviews List ─────────────────────────────────────────────────────────────
 
 class _ReviewsList extends StatefulWidget {
   final bool isDark;
@@ -1001,7 +987,6 @@ class _ReviewsListState extends State<_ReviewsList> {
   }
 }
 
-// ─── Reusable Review Card ─────────────────────────────────────────────────────
 
 class ReviewCard extends StatefulWidget {
   final ReviewItem review;
@@ -1188,7 +1173,6 @@ class _ReviewCardState extends State<ReviewCard> {
   }
 }
 
-// ─── Footer Section ───────────────────────────────────────────────────────────
 
 class _FooterSection extends StatelessWidget {
   final bool isDark;

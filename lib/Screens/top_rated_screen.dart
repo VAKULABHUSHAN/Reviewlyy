@@ -9,7 +9,6 @@ class TopRatedScreen extends StatelessWidget {
   }
 }
 
-// ─── Constants ───────────────────────────────────────────────────────────────
 
 const kPrimary = Color(0xFF2469EB);
 
@@ -67,7 +66,6 @@ const _listProducts = [
   ),
 ];
 
-// ─── Data Models ─────────────────────────────────────────────────────────────
 
 class _PodiumProduct {
   final int rank;
@@ -101,7 +99,6 @@ class _ListProduct {
   });
 }
 
-// ─── Main Page ────────────────────────────────────────────────────────────────
 
 class TopRatedPage extends StatefulWidget {
   const TopRatedPage({super.key});
@@ -170,7 +167,6 @@ class _TopRatedPageState extends State<TopRatedPage> {
   }
 }
 
-// ─── Top Navigation ───────────────────────────────────────────────────────────
 
 class _TopNav extends StatelessWidget {
   final bool isDark;
@@ -355,7 +351,6 @@ class _NavLink extends StatelessWidget {
   }
 }
 
-// ─── Page Header ──────────────────────────────────────────────────────────────
 
 class _PageHeader extends StatelessWidget {
   final bool isDark;
@@ -483,7 +478,6 @@ class _OutlineButton extends StatelessWidget {
   }
 }
 
-// ─── Podium Section ──────────────────────────────────────────────────────────
 
 class _PodiumSection extends StatelessWidget {
   final bool isDark;
@@ -746,7 +740,6 @@ class _PodiumCard extends StatelessWidget {
   }
 }
 
-// ─── Tab Bar ──────────────────────────────────────────────────────────────────
 
 class _TabBar extends StatelessWidget {
   final List<String> tabs;
@@ -810,7 +803,6 @@ class _TabBar extends StatelessWidget {
   }
 }
 
-// ─── Product List ─────────────────────────────────────────────────────────────
 
 class _ProductList extends StatelessWidget {
   final bool isDark;
@@ -1033,7 +1025,6 @@ class _SmallButton extends StatelessWidget {
   }
 }
 
-// ─── Load More ────────────────────────────────────────────────────────────────
 
 class _LoadMoreButton extends StatelessWidget {
   final bool isDark;
@@ -1066,7 +1057,6 @@ class _LoadMoreButton extends StatelessWidget {
   }
 }
 
-// ─── Footer ───────────────────────────────────────────────────────────────────
 
 class _Footer extends StatelessWidget {
   final bool isDark;
@@ -1282,7 +1272,6 @@ class _FooterLink extends StatelessWidget {
   }
 }
 
-// ─── Star Rating Widget ────────────────────────────────────────────────────────
 
 class _StarRating extends StatelessWidget {
   final double rating;
