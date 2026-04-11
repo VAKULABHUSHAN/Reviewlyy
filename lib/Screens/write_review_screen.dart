@@ -62,6 +62,7 @@ class _WriteReviewBodyState extends State<_WriteReviewBody> {
       rating: _selectedRating,
       title: _titleController.text.trim(),
       body: _descController.text.trim(),
+      productId: '',
     );
 
     setState(() {
