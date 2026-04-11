@@ -7,11 +7,11 @@ import 'routes/app_routes.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  runApp(const ReviewlyApp());
+  runApp(const MyApp());
 }
 
-class ReviewlyApp extends StatelessWidget {
-  const ReviewlyApp({super.key});
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {

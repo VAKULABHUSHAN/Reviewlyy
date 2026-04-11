@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../Themes/app_colors.dart';
+import '../models/product_model.dart';
 import '../providers/catalog_provider.dart';
 import '../routes/app_routes.dart';
 import '../widgets/common_widgets.dart';
@@ -83,9 +84,8 @@ class DashBoardScreen extends StatelessWidget {
               ...recentProducts.map(
                 (product) => Padding(
                   padding: const EdgeInsets.only(bottom: 12),
-                  child: ProductSummaryCard(
+                  child: _DashboardProductCard(
                     product: product,
-                    buttonLabel: 'Open',
                     onTap: () => Navigator.pushNamed(
                       context,
                       AppRoutes.productDetails,
@@ -132,6 +132,98 @@ class _MetricCard extends StatelessWidget {
               fontSize: 28,
               fontWeight: FontWeight.w900,
             ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _DashboardProductCard extends StatelessWidget {
+  const _DashboardProductCard({
+    required this.product,
+    required this.onTap,
+  });
+
+  final ProductModel product;
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+    final isLaptopView = MediaQuery.of(context).size.width >= 900;
+    final imageSize = isLaptopView ? 72.0 : 96.0;
+
+    return Container(
+      padding: const EdgeInsets.all(16),
+      decoration: BoxDecoration(
+        color: isDark ? AppColors.cardDark : Colors.white,
+        borderRadius: BorderRadius.circular(18),
+        border: Border.all(
+          color: isDark ? AppColors.cardBorderDark : AppColors.cardBorderLight,
+        ),
+      ),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          ClipRRect(
+            borderRadius: BorderRadius.circular(12),
+            child: Image.network(
+              product.imageUrls.first,
+              width: imageSize,
+              height: imageSize,
+              fit: BoxFit.cover,
+              errorBuilder: (_, __, ___) => Container(
+                width: imageSize,
+                height: imageSize,
+                color: Colors.grey.shade300,
+              ),
+            ),
+          ),
+          const SizedBox(width: 14),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  product.title,
+                  style: TextStyle(
+                    fontFamily: 'Manrope',
+                    fontSize: 17,
+                    fontWeight: FontWeight.w800,
+                    color: isDark ? Colors.white : Colors.black,
+                  ),
+                ),
+                const SizedBox(height: 4),
+                Text(
+                  '${product.category} • ${product.reviewCount} reviews',
+                  style: const TextStyle(
+                    fontFamily: 'Manrope',
+                    fontSize: 13,
+                    color: AppColors.textMuted,
+                  ),
+                ),
+                const SizedBox(height: 6),
+                Text(
+                  '${product.averageRating.toStringAsFixed(1)} rating',
+                  style: const TextStyle(
+                    fontFamily: 'Manrope',
+                    fontSize: 13,
+                    fontWeight: FontWeight.w700,
+                    color: AppColors.primary,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          const SizedBox(width: 12),
+          FilledButton(
+            onPressed: onTap,
+            style: FilledButton.styleFrom(
+              backgroundColor: AppColors.primary,
+              foregroundColor: Colors.white,
+            ),
+            child: const Text('Open'),
           ),
         ],
       ),

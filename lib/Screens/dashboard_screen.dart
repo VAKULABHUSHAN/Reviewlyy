@@ -192,9 +192,9 @@ class _DashboardPageState extends State<DashboardPage>
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           _DashboardHeader(isDark: isDark, isWide: isWide),
-                          const SizedBox(height: 32),
+                          const SizedBox(height: 20),
                           _StatsRow(isDark: isDark, isWide: isWide),
-                          const SizedBox(height: 32),
+                          const SizedBox(height: 20),
                           _ReviewsCard(
                             isDark: isDark,
                             isWide: isWide,
@@ -548,10 +548,10 @@ class _StatCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(20),
+      padding: const EdgeInsets.all(12), // reduced
       decoration: BoxDecoration(
         color: isDark ? const Color(0xFF1E293B) : Colors.white,
-        borderRadius: BorderRadius.circular(12),
+        borderRadius: BorderRadius.circular(8), // reduced
         border: Border.all(
           color: isDark
               ? const Color(0xFF334155)
@@ -559,8 +559,8 @@ class _StatCard extends StatelessWidget {
         ),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.04),
-            blurRadius: 8,
+            color: Colors.black.withOpacity(0.03),
+            blurRadius: 4, // reduced
             offset: const Offset(0, 2),
           )
         ],
@@ -574,33 +574,34 @@ class _StatCard extends StatelessWidget {
                 Text(
                   data.label.toUpperCase(),
                   style: TextStyle(
-                    fontSize: 11,
+                    fontSize: 10, // reduced
                     fontWeight: FontWeight.w600,
-                    letterSpacing: 0.8,
+                    letterSpacing: 0.6,
                     color: isDark
                         ? const Color(0xFF94A3B8)
                         : const Color(0xFF64748B),
                   ),
                 ),
-                const SizedBox(height: 8),
+                const SizedBox(height: 6),
                 Text(
                   data.value,
                   style: TextStyle(
-                    fontSize: 30,
+                    fontSize: 22, // reduced
                     fontWeight: FontWeight.w800,
-                    color: isDark ? Colors.white : const Color(0xFF0F172A),
+                    color: isDark
+                        ? Colors.white
+                        : const Color(0xFF0F172A),
                   ),
                 ),
               ],
             ),
           ),
-          Icon(data.icon, color: data.iconColor, size: 28),
+          Icon(data.icon, color: data.iconColor, size: 22), // reduced
         ],
       ),
     );
   }
 }
-
 // ─── Reviews Card ─────────────────────────────────────────────────────────────
 
 class _ReviewsCard extends StatelessWidget {
@@ -625,7 +626,7 @@ class _ReviewsCard extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         color: isDark ? const Color(0xFF1E293B) : Colors.white,
-        borderRadius: BorderRadius.circular(12),
+        borderRadius: BorderRadius.circular(10), // reduced
         border: Border.all(
           color: isDark
               ? const Color(0xFF334155)
@@ -846,7 +847,7 @@ class _ReviewTable extends StatelessWidget {
                 _TH(text: 'Status', style: headerStyle),
                 Padding(
                   padding: const EdgeInsets.symmetric(
-                      horizontal: 20, vertical: 14),
+                      horizontal: 12, vertical: 10),
                   child: Text(
                     'ACTIONS',
                     textAlign: TextAlign.right,
@@ -875,7 +876,7 @@ class _ReviewTable extends StatelessWidget {
                 children: [
                   Padding(
                     padding: const EdgeInsets.symmetric(
-                        horizontal: 20, vertical: 16),
+                        horizontal: 12, vertical: 10),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -904,12 +905,12 @@ class _ReviewTable extends StatelessWidget {
                   ),
                   Padding(
                     padding: const EdgeInsets.symmetric(
-                        horizontal: 20, vertical: 16),
+                        horizontal: 12, vertical: 10),
                     child: _StarRow(rating: r.rating, size: 16),
                   ),
                   Padding(
                     padding: const EdgeInsets.symmetric(
-                        horizontal: 20, vertical: 16),
+                        horizontal: 12, vertical: 10),
                     child: Text(
                       r.date,
                       style: TextStyle(
@@ -922,12 +923,12 @@ class _ReviewTable extends StatelessWidget {
                   ),
                   Padding(
                     padding: const EdgeInsets.symmetric(
-                        horizontal: 20, vertical: 16),
+                        horizontal: 12, vertical: 10),
                     child: _StatusBadge(status: r.status),
                   ),
                   Padding(
                     padding: const EdgeInsets.symmetric(
-                        horizontal: 20, vertical: 12),
+                        horizontal: 12, vertical: 10),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
@@ -1624,7 +1625,7 @@ class _FooterNewsletter extends StatelessWidget {
               ),
               border: InputBorder.none,
               contentPadding: const EdgeInsets.symmetric(
-                  horizontal: 14, vertical: 10),
+                  horizontal: 12, vertical: 10),
               isDense: true,
             ),
             style: TextStyle(
