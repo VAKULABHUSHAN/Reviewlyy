@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 
 import 'Themes/app_themes.dart';
 import 'app_routes.dart';
@@ -15,10 +16,24 @@ import 'pages/signup_screen.dart';
 import 'pages/top_rated_screen.dart';
 import 'pages/write_review_screen.dart';
 
-void main() {
+const supabaseUrl = 'https://qifmnvyrlzbnzrdzfwek.supabase.co';
+const supabaseAnonKey =
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFpZm1udnlybHpibnpyZHpmd2VrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzU5MDY0NTYsImV4cCI6MjA5MTQ4MjQ1Nn0.GBziU-b2xcLgNJT9b2Bh1b1uMLkFZBK1m-wRxgsXrIA';
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  await Supabase.initialize(
+    url: supabaseUrl,
+    anonKey: supabaseAnonKey,
+  );
+
+  final provider = AppReviewProvider();
+  await provider.initialize();
+
   runApp(
-    ChangeNotifierProvider(
-      create: (_) => AppReviewProvider(),
+    ChangeNotifierProvider.value(
+      value: provider,
       child: const MyApp(),
     ),
   );
