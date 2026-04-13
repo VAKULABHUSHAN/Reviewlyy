@@ -5,34 +5,10 @@ class TopRatedScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'ReviewHub',
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        useMaterial3: true,
-        fontFamily: 'Roboto',
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: const Color(0xFF2469EB),
-          brightness: Brightness.light,
-        ),
-        scaffoldBackgroundColor: const Color(0xFFF6F6F8),
-      ),
-      darkTheme: ThemeData(
-        useMaterial3: true,
-        fontFamily: 'Roboto',
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: const Color(0xFF2469EB),
-          brightness: Brightness.dark,
-        ),
-        scaffoldBackgroundColor: const Color(0xFF111621),
-      ),
-      themeMode: ThemeMode.system,
-      home: const TopRatedPage(),
-    );
+    return const TopRatedPage();
   }
 }
 
-// ─── Constants ───────────────────────────────────────────────────────────────
 
 const kPrimary = Color(0xFF2469EB);
 
@@ -90,7 +66,6 @@ const _listProducts = [
   ),
 ];
 
-// ─── Data Models ─────────────────────────────────────────────────────────────
 
 class _PodiumProduct {
   final int rank;
@@ -124,7 +99,6 @@ class _ListProduct {
   });
 }
 
-// ─── Main Page ────────────────────────────────────────────────────────────────
 
 class TopRatedPage extends StatefulWidget {
   const TopRatedPage({super.key});
@@ -193,7 +167,6 @@ class _TopRatedPageState extends State<TopRatedPage> {
   }
 }
 
-// ─── Top Navigation ───────────────────────────────────────────────────────────
 
 class _TopNav extends StatelessWidget {
   final bool isDark;
@@ -337,37 +310,47 @@ class _NavLink extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        Text(
-          label,
-          style: TextStyle(
-            color: isActive
-                ? kPrimary
-                : isDark
-                ? const Color(0xFF94A3B8)
-                : const Color(0xFF475569),
-            fontWeight: isActive ? FontWeight.w700 : FontWeight.w600,
-            fontSize: 13,
-          ),
-        ),
-        if (isActive)
-          Container(
-            margin: const EdgeInsets.only(top: 4),
-            height: 2,
-            width: 36,
-            decoration: BoxDecoration(
-              color: kPrimary,
-              borderRadius: BorderRadius.circular(2),
+    return GestureDetector(
+      onTap: () {
+        if (isActive) return;
+        switch (label) {
+          case 'Home': Navigator.pushNamed(context, '/');
+          case 'Categories': Navigator.pushNamed(context, '/products');
+          case 'Top Rated': break;
+          case 'Compare': break;
+        }
+      },
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Text(
+            label,
+            style: TextStyle(
+              color: isActive
+                  ? kPrimary
+                  : isDark
+                  ? const Color(0xFF94A3B8)
+                  : const Color(0xFF475569),
+              fontWeight: isActive ? FontWeight.w700 : FontWeight.w600,
+              fontSize: 13,
             ),
           ),
-      ],
+          if (isActive)
+            Container(
+              margin: const EdgeInsets.only(top: 4),
+              height: 2,
+              width: 36,
+              decoration: BoxDecoration(
+                color: kPrimary,
+                borderRadius: BorderRadius.circular(2),
+              ),
+            ),
+        ],
+      ),
     );
   }
 }
 
-// ─── Page Header ──────────────────────────────────────────────────────────────
 
 class _PageHeader extends StatelessWidget {
   final bool isDark;
@@ -495,7 +478,6 @@ class _OutlineButton extends StatelessWidget {
   }
 }
 
-// ─── Podium Section ──────────────────────────────────────────────────────────
 
 class _PodiumSection extends StatelessWidget {
   final bool isDark;
@@ -758,7 +740,6 @@ class _PodiumCard extends StatelessWidget {
   }
 }
 
-// ─── Tab Bar ──────────────────────────────────────────────────────────────────
 
 class _TabBar extends StatelessWidget {
   final List<String> tabs;
@@ -822,7 +803,6 @@ class _TabBar extends StatelessWidget {
   }
 }
 
-// ─── Product List ─────────────────────────────────────────────────────────────
 
 class _ProductList extends StatelessWidget {
   final bool isDark;
@@ -1045,7 +1025,6 @@ class _SmallButton extends StatelessWidget {
   }
 }
 
-// ─── Load More ────────────────────────────────────────────────────────────────
 
 class _LoadMoreButton extends StatelessWidget {
   final bool isDark;
@@ -1078,7 +1057,6 @@ class _LoadMoreButton extends StatelessWidget {
   }
 }
 
-// ─── Footer ───────────────────────────────────────────────────────────────────
 
 class _Footer extends StatelessWidget {
   final bool isDark;
@@ -1294,7 +1272,6 @@ class _FooterLink extends StatelessWidget {
   }
 }
 
-// ─── Star Rating Widget ────────────────────────────────────────────────────────
 
 class _StarRating extends StatelessWidget {
   final double rating;

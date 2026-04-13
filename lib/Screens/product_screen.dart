@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-// ─── Shared Constants (import from app_theme.dart in full project) ────────────
 
 class AppColors {
   static const primary = Color(0xFF2469EB);
@@ -13,7 +12,6 @@ class AppColors {
   static const starYellow = Color(0xFFFACC15);
 }
 
-// ─── Product Data Model ───────────────────────────────────────────────────────
 
 class ProductData {
   final String title;
@@ -33,7 +31,6 @@ class ProductData {
   });
 }
 
-// ─── Static Product List ──────────────────────────────────────────────────────
 
 const _allProducts = [
   ProductData(
@@ -118,47 +115,14 @@ const _allProducts = [
   ),
 ];
 
-// ─── Products Screen ──────────────────────────────────────────────────────────
 
-class ProductsScreen extends StatefulWidget {
+class ProductsScreen extends StatelessWidget {
   const ProductsScreen({super.key});
 
   @override
-  State<ProductsScreen> createState() => _ProductsScreenState();
-}
-
-class _ProductsScreenState extends State<ProductsScreen> {
-  bool _isDark = false;
-
-  void _toggleTheme() => setState(() => _isDark = !_isDark);
-
-  @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      themeMode: _isDark ? ThemeMode.dark : ThemeMode.light,
-      theme: ThemeData(
-        useMaterial3: true,
-        fontFamily: 'Manrope',
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: AppColors.primary,
-          brightness: Brightness.light,
-          surface: AppColors.backgroundLight,
-        ),
-        scaffoldBackgroundColor: AppColors.backgroundLight,
-      ),
-      darkTheme: ThemeData(
-        useMaterial3: true,
-        fontFamily: 'Manrope',
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: AppColors.primary,
-          brightness: Brightness.dark,
-          surface: AppColors.backgroundDark,
-        ),
-        scaffoldBackgroundColor: AppColors.backgroundDark,
-      ),
-      home: _ProductsBody(isDark: _isDark, onToggleTheme: _toggleTheme),
-    );
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+    return _ProductsBody(isDark: isDark, onToggleTheme: () {});
   }
 }
 
@@ -251,7 +215,6 @@ class _ProductsBodyState extends State<_ProductsBody> {
     return EdgeInsets.symmetric(horizontal: h);
   }
 
-  // ── AppBar ──────────────────────────────────────────────────────────────────
 
   PreferredSizeWidget _buildAppBar(BuildContext context, bool isDark) {
     final isWide = MediaQuery.of(context).size.width > 700;
@@ -324,7 +287,6 @@ class _ProductsBodyState extends State<_ProductsBody> {
     );
   }
 
-  // ── Page Header ─────────────────────────────────────────────────────────────
 
   Widget _buildPageHeader() {
     return Column(
@@ -353,7 +315,6 @@ class _ProductsBodyState extends State<_ProductsBody> {
     );
   }
 
-  // ── Search + Filter Bar ──────────────────────────────────────────────────────
 
   Widget _buildSearchFilterBar(BuildContext context, bool isDark) {
     final isWide = MediaQuery.of(context).size.width > 700;
@@ -472,7 +433,6 @@ class _ProductsBodyState extends State<_ProductsBody> {
     );
   }
 
-  // ── Product Grid ─────────────────────────────────────────────────────────────
 
   Widget _buildProductGrid(BuildContext context) {
     final w = MediaQuery.of(context).size.width;
@@ -510,7 +470,6 @@ class _ProductsBodyState extends State<_ProductsBody> {
     );
   }
 
-  // ── Pagination ───────────────────────────────────────────────────────────────
 
   Widget _buildPagination(bool isDark) {
     final pages = [1, 2, 3, 12];
@@ -584,7 +543,6 @@ class _ProductsBodyState extends State<_ProductsBody> {
   }
 }
 
-// ─── Reusable: AppBar Nav Link ────────────────────────────────────────────────
 
 class _AppNavLink extends StatelessWidget {
   final String label;
@@ -599,7 +557,15 @@ class _AppNavLink extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 10),
       child: GestureDetector(
-        onTap: () {},
+        onTap: () {
+          if (isActive) return;
+          switch (label) {
+            case 'Home': Navigator.pushNamed(context, '/');
+            case 'Products': break;
+            case 'Categories': Navigator.pushNamed(context, '/products');
+            case 'About': break;
+          }
+        },
         child: Text(
           label,
           style: TextStyle(
@@ -616,7 +582,6 @@ class _AppNavLink extends StatelessWidget {
   }
 }
 
-// ─── Reusable: Search Bar ─────────────────────────────────────────────────────
 
 class _SearchBar extends StatelessWidget {
   final bool isDark;
@@ -681,7 +646,6 @@ class _SearchBar extends StatelessWidget {
   }
 }
 
-// ─── Reusable: Ratings Dropdown ───────────────────────────────────────────────
 
 class _RatingsDropdown extends StatelessWidget {
   final bool isDark;
@@ -722,7 +686,6 @@ class _RatingsDropdown extends StatelessWidget {
   }
 }
 
-// ─── Reusable: Sort Toggle ────────────────────────────────────────────────────
 
 class _SortToggle extends StatelessWidget {
   final List<String> labels;
@@ -793,7 +756,6 @@ class _SortToggle extends StatelessWidget {
   }
 }
 
-// ─── Reusable: Filter Chip ────────────────────────────────────────────────────
 
 class _FilterChip extends StatelessWidget {
   final String label;
@@ -844,7 +806,6 @@ class _FilterChip extends StatelessWidget {
   }
 }
 
-// ─── Reusable: Product Card ───────────────────────────────────────────────────
 
 class _ProductCard extends StatefulWidget {
   final ProductData product;
@@ -1017,7 +978,7 @@ class _ProductCardState extends State<_ProductCard> {
                             ],
                           ),
                           ElevatedButton(
-                            onPressed: () {},
+                            onPressed: () => Navigator.pushNamed(context, '/product-details'),
                             style: ElevatedButton.styleFrom(
                               backgroundColor: AppColors.primary,
                               foregroundColor: Colors.white,
@@ -1048,7 +1009,6 @@ class _ProductCardState extends State<_ProductCard> {
   }
 }
 
-// ─── Reusable: Pagination Button ──────────────────────────────────────────────
 
 class _PageButton extends StatelessWidget {
   final Widget child;
@@ -1090,7 +1050,6 @@ class _PageButton extends StatelessWidget {
   }
 }
 
-// ─── Footer Section ───────────────────────────────────────────────────────────
 
 class _FooterSection extends StatelessWidget {
   final bool isDark;
@@ -1362,5 +1321,4 @@ class _FooterNewsletter extends StatelessWidget {
   }
 }
 
-// ─── Entry Point ──────────────────────────────────────────────────────────────
 

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-// ─── App Theme Constants ────────────────────────────────────────────────────
+
 
 class AppColors {
   static const primary = Color(0xFF2469EB);
@@ -25,57 +25,14 @@ class AppTextStyles {
   );
 }
 
-// ─── Main Screen ─────────────────────────────────────────────────────────────
 
-class HomeScreen extends StatefulWidget {
+class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
-}
-
-class _HomeScreenState extends State<HomeScreen> {
-  bool _isDark = false;
-
-  void _toggleTheme() => setState(() => _isDark = !_isDark);
-
-  @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      themeMode: _isDark ? ThemeMode.dark : ThemeMode.light,
-      theme: ThemeData(
-        useMaterial3: true,
-        fontFamily: 'Manrope',
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: AppColors.primary,
-          brightness: Brightness.light,
-          surface: AppColors.backgroundLight,
-        ),
-        scaffoldBackgroundColor: AppColors.backgroundLight,
-        appBarTheme: const AppBarTheme(
-          backgroundColor: Colors.white,
-          surfaceTintColor: Colors.transparent,
-          elevation: 0,
-        ),
-      ),
-      darkTheme: ThemeData(
-        useMaterial3: true,
-        fontFamily: 'Manrope',
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: AppColors.primary,
-          brightness: Brightness.dark,
-          surface: AppColors.backgroundDark,
-        ),
-        scaffoldBackgroundColor: AppColors.backgroundDark,
-        appBarTheme: const AppBarTheme(
-          backgroundColor: AppColors.backgroundDark,
-          surfaceTintColor: Colors.transparent,
-          elevation: 0,
-        ),
-      ),
-      home: _HomeBody(isDark: _isDark, onToggleTheme: _toggleTheme),
-    );
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+    return _HomeBody(isDark: isDark, onToggleTheme: () {});
   }
 }
 
@@ -218,7 +175,6 @@ class _HomeBody extends StatelessWidget {
   }
 }
 
-// ─── Logo Widget ──────────────────────────────────────────────────────────────
 
 class _ReviewPulseLogo extends StatelessWidget {
   const _ReviewPulseLogo();
@@ -244,7 +200,6 @@ class _ReviewPulseLogo extends StatelessWidget {
   }
 }
 
-// ─── Nav Link Widget ──────────────────────────────────────────────────────────
 
 class _NavLink extends StatelessWidget {
   final String label;
@@ -257,7 +212,16 @@ class _NavLink extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 12),
       child: GestureDetector(
-        onTap: () {},
+        onTap: () {
+          if (isActive) return;
+          switch (label) {
+            case 'Home': Navigator.pushNamed(context, '/');
+            case 'Products': Navigator.pushNamed(context, '/products');
+            case 'Top Rated': Navigator.pushNamed(context, '/top-rated');
+            case 'Reviews': Navigator.pushNamed(context, '/reviews');
+            case 'Dashboard': Navigator.pushNamed(context, '/dashboard');
+          }
+        },
         child: Text(
           label,
           style: TextStyle(
@@ -272,7 +236,6 @@ class _NavLink extends StatelessWidget {
   }
 }
 
-// ─── Hero Section ─────────────────────────────────────────────────────────────
 
 class _HeroSection extends StatelessWidget {
   const _HeroSection();
@@ -350,7 +313,7 @@ class _HeroSection extends StatelessWidget {
                     alignment: WrapAlignment.center,
                     children: [
                       ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () => Navigator.pushNamed(context, '/products'),
                         style: ElevatedButton.styleFrom(
                           backgroundColor: AppColors.primary,
                           foregroundColor: Colors.white,
@@ -368,7 +331,7 @@ class _HeroSection extends StatelessWidget {
                         child: const Text('Explore Products'),
                       ),
                       OutlinedButton(
-                        onPressed: () {},
+                        onPressed: () => Navigator.pushNamed(context, '/write-review'),
                         style: OutlinedButton.styleFrom(
                           foregroundColor: Colors.white,
                           side: const BorderSide(color: Colors.white38),
@@ -396,7 +359,6 @@ class _HeroSection extends StatelessWidget {
   }
 }
 
-// ─── Featured Products Section ────────────────────────────────────────────────
 
 class _FeaturedProductsSection extends StatelessWidget {
   const _FeaturedProductsSection();
@@ -458,7 +420,7 @@ class _FeaturedProductsSection extends StatelessWidget {
                     .copyWith(fontSize: 26),
               ),
               GestureDetector(
-                onTap: () {},
+                onTap: () => Navigator.pushNamed(context, '/products'),
                 child: const Row(
                   children: [
                     Text(
@@ -498,7 +460,6 @@ class _FeaturedProductsSection extends StatelessWidget {
   }
 }
 
-// ─── Product Data Model ───────────────────────────────────────────────────────
 
 class ProductData {
   final String title;
@@ -518,7 +479,6 @@ class ProductData {
   });
 }
 
-// ─── Reusable Product Card ────────────────────────────────────────────────────
 
 class ProductCard extends StatefulWidget {
   final ProductData product;
@@ -635,7 +595,7 @@ class _ProductCardState extends State<ProductCard> {
               SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () => Navigator.pushNamed(context, '/product-details'),
                   style: ElevatedButton.styleFrom(
                     backgroundColor: _hovered
                         ? AppColors.primary
@@ -667,7 +627,6 @@ class _ProductCardState extends State<ProductCard> {
   }
 }
 
-// ─── Reusable Star Rating Widget ──────────────────────────────────────────────
 
 class StarRating extends StatelessWidget {
   final double rating;
@@ -708,7 +667,6 @@ class StarRating extends StatelessWidget {
   }
 }
 
-// ─── Top Categories Section ───────────────────────────────────────────────────
 
 class _TopCategoriesSection extends StatelessWidget {
   const _TopCategoriesSection();
@@ -762,7 +720,6 @@ class _TopCategoriesSection extends StatelessWidget {
   }
 }
 
-// ─── Category Data Model ──────────────────────────────────────────────────────
 
 class CategoryData {
   final String label;
@@ -771,7 +728,6 @@ class CategoryData {
   const CategoryData({required this.label, required this.icon});
 }
 
-// ─── Reusable Category Card ───────────────────────────────────────────────────
 
 class CategoryCard extends StatefulWidget {
   final CategoryData category;
@@ -838,7 +794,6 @@ class _CategoryCardState extends State<CategoryCard> {
   }
 }
 
-// ─── Footer Section ───────────────────────────────────────────────────────────
 
 class _FooterSection extends StatelessWidget {
   const _FooterSection();
